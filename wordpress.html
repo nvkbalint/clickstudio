@@ -1,1 +1,112 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WordPress Fejlesztés & Egyedi Bővítmények | NEXUS Webstúdió</title>
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <!-- GOOGLE CDN OUTFIT FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- STYLESHEET -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <div class="ambient-glow-1"></div>
+    <div class="ambient-glow-2"></div>
+
+    <!-- NAVBAR -->
+    <header>
+        <div class="nav-inner">
+            <a href="index.html" class="logo">
+                <span class="logo-badge">NEXUS</span> WEB
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Kezdőlap</a></li>
+                <li><a href="wordpress.html" class="active">WordPress</a></li>
+                <li><a href="araink.html">Áraink</a></li>
+                <li><a href="kapcsolat.html">Kapcsolat</a></li>
+            </ul>
+            <a href="kapcsolat.html" class="btn btn-primary" style="padding: 8px 18px; font-size: 0.85rem;">Ajánlatkérés</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <span class="mono-tag">🔌 Egyedi WordPress Fejlesztés</span>
+            <h1>Egyedi Bővítmények & WordPress Megoldások</h1>
+            <p>A felesleges kész pluginok lelassítják az oldaladat? Egyedi, biztonságos és villámgyors WordPress bővítményeket fejlesztünk, amelyek pontosan azt teszik, amire a vállalkozásodnak szüksége van.</p>
+        </div>
+    </section>
+
+    <!-- WORDPRESS SZOLGÁLTATÁSOK -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <span class="mono-tag">Miben Tudunk Segíteni?</span>
+                <h2>WordPress Szakértelem Kompromisszumok Nélkül</h2>
+            </div>
+            
+            <div class="grid-3" style="margin-bottom: 60px;">
+                <div class="glass-panel" style="padding: 32px;">
+                    <h3 style="margin-bottom: 12px;">⚙️ Egyedi Plugin Fejlesztés</h3>
+                    <p style="color: var(--text-muted);">Saját igényeidre szabott bővítményeket írunk tiszta kóddal, felesleges funkciók és lelassulás nélkül.</p>
+                </div>
+                <div class="glass-panel" style="padding: 32px;">
+                    <h3 style="margin-bottom: 12px;">🔗 API & Rendszerintegráció</h3>
+                    <p style="color: var(--text-muted);">Összekötjük a WordPress oldaladat számlázókkal (Számlázz.hu, Billingo), CRM rendszerekkel és fizetési kapukkal.</p>
+                </div>
+                <div class="glass-panel" style="padding: 32px;">
+                    <h3 style="margin-bottom: 12px;">🛒 WooCommerce Célfejlesztés</h3>
+                    <p style="color: var(--text-muted);">Egyedi kosár- és kedvezmény-logikák, speciális terméktípusok és egyedi webshop funkciók megvalósítása.</p>
+                </div>
+            </div>
+
+            <!-- KAPCSOLATI ŰRLAP A WORDPRESS OLDALON -->
+            <div style="max-width: 580px; margin: 0 auto;">
+                <div class="glass-panel" style="padding: 48px 40px;">
+                    <h3 style="text-align: center; margin-bottom: 8px;">Kérj Ajánlatot WordPress Fejlesztésre</h3>
+                    <p style="text-align: center; color: var(--text-muted); margin-bottom: 32px;">Írd meg nekünk, milyen bővítményre vagy egyedi megoldásra lenne szükséged!</p>
+                    
+                    <form action="https://api.web3forms.com/submit" method="POST">
+                        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY_HERE">
+                        <input type="hidden" name="subject" value="Új WordPress ajánlatkérés a NEXUS Webstúdió oldalról">
+
+                        <div class="form-group">
+                            <label for="name">Név</label>
+                            <input type="text" id="name" name="name" placeholder="A neved" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email cím</label>
+                            <input type="email" id="email" name="email" placeholder="email@domain.hu" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Projekt részletei / Üzenet</label>
+                            <textarea id="message" name="message" placeholder="Milyen egyedi bővítményre vagy WordPress megoldásra lenne szükséged?"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 8px;">WordPress Ajánlatkérés →</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 NEXUS Webstúdió. Minden jog fenntartva.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
