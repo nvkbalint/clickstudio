@@ -1,7 +1,8 @@
 /* ==========================================================================
    GLOBAL DESIGN SYSTEM (LIGHT FROSTED GLASS THEME)
    ========================================================================== */
-/* 1. Define the Outfit Font at the top of css/styles.css */
+
+/* 1. Define the Outfit Font */
 @font-face {
     font-family: 'Outfit';
     font-style: normal;
@@ -10,15 +11,7 @@
     src: url('../fonts/Outfit-Variable.woff2') format('woff2');
 }
 
-/* 2. Set Outfit as your global font variable */
-:root {
-    --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
-}
-
-body {
-    font-family: var(--font-sans);
-}
-
+/* 2. Global Variables */
 :root {
     --bg-color: #fafafa;
     --bg-secondary: #f4f4f7;
@@ -31,7 +24,10 @@ body {
     --accent-blue: #0284c7;
     --accent-purple: #7c3aed;
     --accent-gradient: linear-gradient(135deg, #0284c7, #7c3aed);
-    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    
+    /* Global Font set to Outfit */
+    --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    
     --shadow-subtle: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
     --shadow-glass: 0 20px 40px -15px rgba(0, 0, 0, 0.07);
 }
