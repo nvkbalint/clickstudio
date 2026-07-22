@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kapcsolat | NEXUS Webstúdió</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <div class="nav-inner">
+            <a href="index.html" class="logo">
+                <span class="logo-badge">NEXUS</span> WEB
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Kezdőlap</a></li>
+                <li><a href="araink.html">Áraink</a></li>
+                <li><a href="kapcsolat.html" class="active">Kapcsolat</a></li>
+            </ul>
+            <a href="kapcsolat.html" class="btn btn-primary" style="padding: 8px 18px; font-size: 0.85rem;">Ajánlatkérés</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <span class="mono-tag">Lépjen Velünk Kapcsolatba</span>
+            <h1>Indítsuk El Új Weboldalát</h1>
+            <p>Töltse ki az alábbi űrlapot, és 24 órán belül felvesszük Önnel a kapcsolatot egy ingyenes konzultációra.</p>
+        </div>
+    </section>
+
+    <!-- CONTACT FORM -->
+    <section class="section">
+        <div class="container" style="max-width: 600px;">
+            <div class="glass-panel" style="padding: 40px;">
+                
+                <form action="https://api.web3forms.com/submit" method="POST">
+                    
+                    <!-- Web3Forms Key (Replace with your key) -->
+                    <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY_HERE">
+                    <input type="hidden" name="subject" value="Új ajánlatkérés a NEXUS Webstúdió oldalról">
+
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; font-weight: 600; margin-bottom: 8px;">Név *</label>
+                        <input type="text" name="name" placeholder="Az Ön neve" required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--card-border); background: #f8fafc; font-family: var(--font-sans); outline: none;">
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; font-weight: 600; margin-bottom: 8px;">Email cím *</label>
+                        <input type="email" name="email" placeholder="email@domain.hu" required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--card-border); background: #f8fafc; font-family: var(--font-sans); outline: none;">
+                    </div>
+
+                    <div style="margin-bottom: 24px;">
+                        <label style="display: block; font-weight: 600; margin-bottom: 8px;">Projekt részletei / Üzenet</label>
+                        <textarea name="message" rows="5" placeholder="Milyen weboldalra lenne szüksége?" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--card-border); background: #f8fafc; font-family: var(--font-sans); outline: none;"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Üzenet Küldése →</button>
+                </form>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 NEXUS Webstúdió. Minden jog fenntartva.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
