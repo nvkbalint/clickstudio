@@ -37,7 +37,8 @@
         </div>
     </header>
 
-    <section class="hero" style="padding-top: 150px; padding-bottom: 20px;">
+    <!-- HERO SECTION (Megfelelő felső margóval, hogy ne takarja el a menü) -->
+    <section class="hero" style="padding-top: 180px; padding-bottom: 20px;">
         <div class="container">
             <span class="mono-tag">Lépj Velünk Kapcsolatba</span>
             <h1>Indítsuk El Az Új Weboldaladat</h1>
@@ -57,7 +58,8 @@
                     <!-- DROPDOWN VÁLASZTÓMEZŐ -->
                     <div class="form-group">
                         <label for="package">Választott szolgáltatás</label>
-                        <select id="package" name="package">
+                        <select id="package" name="package" required>
+                            <option value="" disabled selected hidden>Válassz szolgáltatást...</option>
                             <option value="start">Start weboldal csomag</option>
                             <option value="pro">Pro weboldal csomag</option>
                             <option value="egyedi">Egyedi weboldal csomag</option>
@@ -93,19 +95,8 @@
         </div>
     </footer>
 
-    <!-- AUTOMATIKUS CSOMAG-KIVÁLASZTÓ JAVASCRIPT -->
-    <script>
-        // Beolvassa a ?csomag= paramétert az URL-ből
-        const urlParams = new URLSearchParams(window.location.search);
-        const selectedPackage = urlParams.get('csomag');
-
-        if (selectedPackage) {
-            const packageSelect = document.getElementById('package');
-            if (packageSelect) {
-                packageSelect.value = selectedPackage;
-            }
-        }
-    </script>
+    <!-- JS FÁJL BEHÍVÁSA -->
+    <script src="js/script.js"></script>
 
 </body>
 </html>
