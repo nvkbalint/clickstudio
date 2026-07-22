@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AETHER AI | Enterprise Custom AI Engineering</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==========================================================================
+           RESET & CORE VARIABLES (LIGHT THEME)
+           ========================================================================== */
+        :root {
+            --bg-color: #fafafa;
+            --bg-secondary: #f4f4f7;
+            --card-bg: rgba(255, 255, 255, 0.75);
+            --card-border: rgba(226, 232, 240, 0.8);
+            --glass-nav: rgba(255, 255, 255, 0.82);
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --accent-black: #09090b;
+            --accent-cyan: #0284c7;
+            --accent-purple: #7c3aed;
+            --accent-pink: #db2777;
+            --accent-gradient: linear-gradient(135deg, #0284c7, #7c3aed, #db2777);
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --shadow-subtle: 0 10px 30px -10px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+            --shadow-glass: 0 20px 40px -15px rgba(0, 0, 0, 0.07), 0 0 0 1px rgba(255, 255, 255, 0.9) inset;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Subtle Ambient Glow Background Effects (Light Pastel Blur) */
+        .ambient-glow-1 {
+            position: absolute;
+            top: -120px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 900px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(124, 58, 237, 0.08) 0%, rgba(2, 132, 199, 0.05) 50%, rgba(255,255,255,0) 80%);
+            filter: blur(90px);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .ambient-glow-2 {
+            position: absolute;
+            top: 1100px;
+            right: -150px;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(219, 39, 119, 0.05) 0%, rgba(124, 58, 237, 0.03) 50%, rgba(255,255,255,0) 80%);
+            filter: blur(100px);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Utilities */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .glass-panel {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            box-shadow: var(--shadow-glass);
+        }
+
+        .gradient-text {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .mono-tag {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--accent-purple);
+            background: rgba(124, 58, 237, 0.06);
+            border: 1px solid rgba(124, 58, 237, 0.18);
+            padding: 5px 14px;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 500;
+        }
+
+        .mono-tag::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background-color: var(--accent-purple);
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-black);
+            color: #ffffff;
+            border: 1px solid var(--accent-black);
+        }
+
+        .btn-primary:hover {
+            background-color: #27272a;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-glass {
+            background: rgba(255, 255, 255, 0.8);
+            color: var(--text-main);
+            border: 1px solid var(--card-border);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .btn-glass:hover {
+            background: #ffffff;
+            border-color: #cbd5e1;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        /* ==========================================================================
+           HEADER / NAVIGATION
+           ========================================================================== */
+        header {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 48px);
+            max-width: 1200px;
+            z-index: 1000;
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 24px;
+            background: var(--glass-nav);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 1.15rem;
+            letter-spacing: -0.02em;
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 28px;
+            height: 28px;
+            background: var(--accent-black);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-weight: 900;
+            font-size: 0.85rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-main);
+        }
+
+        /* ==========================================================================
+           HERO SECTION
+           ========================================================================== */
+        .hero {
+            padding-top: 170px;
+            padding-bottom: 90px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.2rem);
+            font-weight: 700;
+            letter-spacing: -0.035em;
+            line-height: 1.1;
+            margin: 24px 0;
+            color: var(--text-main);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: 0 auto 36px;
+            font-weight: 400;
+        }
+
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 60px;
+        }
+
+        /* Hero Visual (Light Frosted Architecture Preview Card) */
+        .hero-preview {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            padding: 24px;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .hero-preview-topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--card-border);
+            margin-bottom: 20px;
+        }
+
+        .dots {
+            display: flex;
+            gap: 8px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.12);
+        }
+
+        .dot-cyan { background: var(--accent-cyan); }
+        .dot-purple { background: var(--accent-purple); }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 16px;
+            text-align: left;
+        }
+
+        /* Clean Light Code Block */
+        .code-block {
+            background: #ffffff;
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 20px;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: #1e293b;
+            line-height: 1.7;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .code-keyword { color: #7c3aed; font-weight: 500; }
+        .code-func { color: #0284c7; font-weight: 500; }
+        .code-str { color: #16a34a; }
+        .code-comment { color: #94a3b8; }
+
+        .metrics-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .metric-card {
+            background: #ffffff;
+            border: 1px solid var(--card-border);
+            padding: 16px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .metric-card .title {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+        }
+
+        .metric-card .value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-top: 4px;
+        }
+
+        /* Floating Light Glass Badges */
+        .glass-float-badge {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 1);
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .badge-1 { bottom: 40px; left: -20px; }
+        .badge-2 { top: 60px; right: -20px; animation-delay: -3s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* ==========================================================================
+           LOGOS / TRUST BAR
+           ========================================================================== */
+        .trust-section {
+            padding: 40px 0 80px;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .trust-title {
+            text-align: center;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .logo-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 48px;
+            flex-wrap: wrap;
+            opacity: 0.5;
+            transition: opacity 0.3s;
+        }
+
+        .logo-row:hover {
+            opacity: 0.95;
+        }
+
+        .logo-item {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: -0.05em;
+            color: var(--text-main);
+        }
+
+        /* ==========================================================================
+           SERVICES / SOLUTIONS
+           ========================================================================== */
+        .section {
+            padding: 120px 0;
+            position: relative;
+        }
+
+        .section-header {
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-top: 12px;
+            color: var(--text-main);
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 550px;
+            margin-top: 12px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .solution-card {
+            padding: 32px;
+            position: relative;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+        }
+
+        .solution-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: transparent;
+            transition: background 0.3s ease;
+        }
+
+        .solution-card:hover {
+            transform: translateY(-5px);
+            border-color: #cbd5e1;
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.08);
+        }
+
+        .solution-card:hover::before {
+            background: var(--accent-gradient);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: #ffffff;
+            border: 1px solid var(--card-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            color: var(--text-main);
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .solution-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-main);
+        }
+
+        .solution-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .card-link {
+            font-size: 0.88rem;
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: gap 0.2s;
+        }
+
+        .solution-card:hover .card-link {
+            gap: 10px;
+            color: var(--accent-purple);
+        }
+
+        /* ==========================================================================
+           ARCHITECTURE SHOWCASE
+           ========================================================================== */
+        .tech-showcase {
+            padding: 40px;
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            box-shadow: var(--shadow-glass);
+        }
+
+        .showcase-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 6px;
+            background: #f1f5f9;
+            padding: 4px;
+            border-radius: 8px;
+            border: 1px solid var(--card-border);
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .tab-btn.active {
+            background: #ffffff;
+            color: var(--text-main);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+
+        .pipeline-demo {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+        }
+
+        .step-box {
+            background: #ffffff;
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 24px;
+            position: relative;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .step-num {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--accent-purple);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .step-title {
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        .step-desc {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        /* ==========================================================================
+           METRICS / BENTO GRID
+           ========================================================================== */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .bento-item {
+            padding: 32px;
+        }
+
+        .bento-item.large {
+            grid-column: span 2;
+        }
+
+        .bento-number {
+            font-size: 3.4rem;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 12px;
+            letter-spacing: -0.03em;
+            color: var(--text-main);
+        }
+
+        /* ==========================================================================
+           CTA SECTION
+           ========================================================================== */
+        .cta-box {
+            text-align: center;
+            padding: 80px 40px;
+            position: relative;
+            overflow: hidden;
+            background: #ffffff;
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.06);
+        }
+
+        .cta-box::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(124, 58, 237, 0.05), transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta-box h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-main);
+            letter-spacing: -0.02em;
+        }
+
+        .cta-box p {
+            color: var(--text-muted);
+            max-width: 550px;
+            margin: 0 auto 36px;
+            font-size: 1.15rem;
+        }
+
+        /* ==========================================================================
+           FOOTER
+           ========================================================================== */
+        footer {
+            padding: 60px 0 40px;
+            border-top: 1px solid var(--card-border);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            background: #ffffff;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(16, 185, 129, 0.08);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            color: #059669;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-family: var(--font-mono);
+            font-weight: 500;
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            background-color: #10b981;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #10b981;
+        }
+
+        /* ==========================================================================
+           RESPONSIVE
+           ========================================================================== */
+        @media (max-width: 900px) {
+            .dashboard-grid { grid-template-columns: 1fr; }
+            .bento-grid { grid-template-columns: 1fr; }
+            .bento-item.large { grid-column: span 1; }
+            .nav-links { display: none; }
+            .glass-float-badge { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-glow-1"></div>
+    <div class="ambient-glow-2"></div>
+
+    <!-- NAVIGATION -->
+    <header>
+        <div class="nav-inner">
+            <a href="#" class="logo">
+                <div class="logo-icon">Æ</div>
+                <span>AETHER AI</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#solutions">Solutions</a></li>
+                <li><a href="#architecture">Architecture</a></li>
+                <li><a href="#impact">Impact</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#contact" class="btn btn-primary" style="padding: 8px 20px; font-size: 0.85rem;">Book Technical Audit</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="mono-tag">Engineered for Enterprise Scale</span>
+                <h1>Architecting Custom AI Systems & Neural Software</h1>
+                <p>We build production-grade bespoke LLMs, autonomous agent architectures, and computer vision software directly integrated into your business.</p>
+                
+                <div class="hero-actions">
+                    <a href="#contact" class="btn btn-primary">Start Building Solutions →</a>
+                    <a href="#architecture" class="btn btn-glass">Explore Architecture</a>
+                </div>
+            </div>
+
+            <!-- HERO LIGHT FROSTED PREVIEW CARD -->
+            <div class="hero-preview glass-panel">
+                <!-- Floating Glass Badges -->
+                <div class="glass-float-badge badge-1">
+                    <span style="color: #10b981;">●</span> Real-time RAG Latency: <strong style="color: var(--text-main);">14ms</strong>
+                </div>
+                <div class="glass-float-badge badge-2">
+                    <span style="color: var(--accent-cyan);">⚡</span> Accuracy Benchmark: <strong style="color: var(--text-main);">99.8%</strong>
+                </div>
+
+                <div class="hero-preview-topbar">
+                    <div class="dots">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                    <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); font-weight: 500;">aether_agent_pipeline.py</div>
+                    <div class="dots">
+                        <div class="dot dot-cyan"></div>
+                        <div class="dot dot-purple"></div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="code-block">
+                        <span class="code-comment"># Production Neural Agent Router</span><br>
+                        <span class="code-keyword">from</span> aether.core <span class="code-keyword">import</span> ModelEngine, VectorStore<br><br>
+                        <span class="code-keyword">async def</span> <span class="code-func">process_enterprise_stream</span>(payload: Context):<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;model = ModelEngine.load_adapter(<span class="code-str">"llama3-70b-finetuned"</span>)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;vector = <span class="code-keyword">await</span> VectorStore.query(payload.embedding)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment"># Zero-hallucination guardrail validation</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;response = <span class="code-keyword">await</span> model.synthesize(vector, guardrails=<span class="code-keyword">True</span>)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span> response.stream()
+                    </div>
+
+                    <div class="metrics-sidebar">
+                        <div class="metric-card">
+                            <div class="title">Active Neural Agents</div>
+                            <div class="value gradient-text">2,840</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="title">GPU Memory Efficiency</div>
+                            <div class="value">94.2%</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="title">Security Status</div>
+                            <div class="value" style="color: #059669; font-size: 1rem; display: flex; align-items: center; gap: 6px; font-weight: 600;">
+                                <span style="width: 8px; height: 8px; background:#10b981; border-radius: 50%;"></span> VPC Isolated
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUST BRAND BAR -->
+    <section class="trust-section">
+        <div class="container">
+            <div class="trust-title">Trusted by engineering leaders building next-gen tech</div>
+            <div class="logo-row">
+                <span class="logo-item">// NEXUS.IO</span>
+                <span class="logo-item">// QUANTUM_DATA</span>
+                <span class="logo-item">// CYBERNETICS</span>
+                <span class="logo-item">// HYPERFLOW</span>
+                <span class="logo-item">// SYNAPSE_HQ</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOLUTIONS GRID -->
+    <section class="section" id="solutions">
+        <div class="container">
+            <div class="section-header">
+                <span class="mono-tag">Core Capabilities</span>
+                <h2>Custom AI Software Built for Performance</h2>
+                <p>We replace off-the-shelf APIs with tailor-made model architectures and robust backend MLOps pipelines.</p>
+            </div>
+
+            <div class="grid-3">
+                <!-- Card 1 -->
+                <div class="solution-card glass-panel">
+                    <div>
+                        <div class="card-icon">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                        </div>
+                        <h3>Custom Model Fine-Tuning</h3>
+                        <p>Fine-tuning open source models (Llama-3, Mistral) on proprietary enterprise data to achieve specialized task domain mastery with complete privacy.</p>
+                    </div>
+                    <a href="#contact" class="card-link">Explore Custom Training →</a>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="solution-card glass-panel">
+                    <div>
+                        <div class="card-icon">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+                        </div>
+                        <h3>Autonomous AI Agents</h3>
+                        <p>Multi-agent frameworks capable of complex multi-step reasoning, automated tool utilization, database querying, and business process automation.</p>
+                    </div>
+                    <a href="#contact" class="card-link">Deploy Agent Systems →</a>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="solution-card glass-panel">
+                    <div>
+                        <div class="card-icon">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        </div>
+                        <h3>Enterprise RAG & Vector Search</h3>
+                        <p>Zero-hallucination semantic search architectures over multi-terabyte internal knowledge bases with fine-grained access control.</p>
+                    </div>
+                    <a href="#contact" class="card-link">Build Knowledge Graph →</a>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="solution-card glass-panel">
+                    <div>
+                        <div class="card-icon">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                        </div>
+                        <h3>Edge Computer Vision</h3>
+                        <p>Real-time optical object detection, spatial analysis, and automated video stream processing deployed directly on edge hardware.</p>
+                    </div>
+                    <a href="#contact" class="card-link">View CV Architecture →</a>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="solution-card glass-panel">
+                    <div>
+                        <div class="card-icon">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                        </div>
+                        <h3>Predictive Data Pipelines</h3>
+                        <p>High-throughput data transformations and real-time inference telemetry designed for ultra-low latency decision engines.</p>
+                    </div>
+                    <a href="#contact" class="card-link">Scale Telemetry →</a>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="solution-card glass-panel">
+                    <div>
+                        <div class="card-icon">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                        </div>
+                        <h3>VPC & On-Prem AI Deployment</h3>
+                        <p>Complete deployment within your isolated cloud environment (AWS, GCP, Azure) ensuring full compliance with SOC2, HIPAA, and GDPR.</p>
+                    </div>
+                    <a href="#contact" class="card-link">Audit Security Protocols →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ARCHITECTURE PROCESS -->
+    <section class="section" id="architecture" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="tech-showcase">
+                <div class="showcase-header">
+                    <div>
+                        <span class="mono-tag">Methodology</span>
+                        <h3 style="font-size: 1.6rem; color: var(--text-main); margin-top: 8px;">From Raw Data to Autonomous Execution</h3>
+                    </div>
+                    <div class="tabs">
+                        <button class="tab-btn active">System Lifecycle</button>
+                        <button class="tab-btn">Security Guardrails</button>
+                    </div>
+                </div>
+
+                <div class="pipeline-demo">
+                    <div class="step-box">
+                        <div class="step-num">01 / DISCOVERY</div>
+                        <div class="step-title">Data Pipeline Audit</div>
+                        <div class="step-desc">Extracting, cleaning, and structuring unstructured enterprise data into optimal token formats.</div>
+                    </div>
+                    <div class="step-box">
+                        <div class="step-num">02 / TRAINING</div>
+                        <div class="step-title">Fine-Tuning & Quantization</div>
+                        <div class="step-desc">Adapting open weights via LoRA/QLoRA while optimizing for peak inference efficiency.</div>
+                    </div>
+                    <div class="step-box">
+                        <div class="step-num">03 / INTEGRATION</div>
+                        <div class="step-title">API Middleware</div>
+                        <div class="step-desc">Connecting vector stores, model endpoints, and business applications through REST/gRPC.</div>
+                    </div>
+                    <div class="step-box">
+                        <div class="step-num">04 / MLOPS</div>
+                        <div class="step-title">Continuous Feedback</div>
+                        <div class="step-desc">Automated evaluation loops, drift monitoring, and continuous reinforcement learning.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- IMPACT & NUMBERS -->
+    <section class="section" id="impact">
+        <div class="container">
+            <div class="bento-grid">
+                <div class="bento-item large glass-panel">
+                    <span class="mono-tag">Proven Results</span>
+                    <div class="bento-number gradient-text">100M+</div>
+                    <h3 style="color: var(--text-main); font-size: 1.4rem; margin-bottom: 8px;">Daily Automated Inferences</h3>
+                    <p style="color: var(--text-muted);">Our custom microservice backend architectures power mission-critical automated decision frameworks across fintech, healthcare, and logistics partners.</p>
+                </div>
+
+                <div class="bento-item glass-panel">
+                    <div class="bento-number">90%</div>
+                    <h3 style="color: var(--text-main); font-size: 1.1rem; margin-bottom: 4px;">Latency Reduction</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Achieved through specialized model quantization and custom CUDA kernel optimization.</p>
+                </div>
+
+                <div class="bento-item glass-panel">
+                    <div class="bento-number">0%</div>
+                    <h3 style="color: var(--text-main); font-size: 1.1rem; margin-bottom: 4px;">Data Leakage</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">100% self-hosted zero-retention infrastructure inside client tenant boundaries.</p>
+                </div>
+
+                <div class="bento-item large glass-panel">
+                    <span class="mono-tag">SLA Guarantees</span>
+                    <div class="bento-number">99.99%</div>
+                    <h3 style="color: var(--text-main); font-size: 1.4rem; margin-bottom: 8px;">Uptime for High-Throughput Pipelines</h3>
+                    <p style="color: var(--text-muted);">Self-healing containerized deployments with automatic fallback model failover handlers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION -->
+    <section class="section" id="contact" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="cta-box">
+                <span class="mono-tag" style="margin-bottom: 16px;">Build Your AI Roadmap</span>
+                <h2>Engineer your competitive AI advantage</h2>
+                <p>Schedule a strategy session with our senior AI architects to audit your stack and evaluate model viability.</p>
+                
+                <div style="display: flex; justify-content: center; gap: 12px; max-width: 480px; margin: 0 auto; flex-wrap: wrap;">
+                    <input type="email" placeholder="Enter your work email" style="flex: 1; min-width: 240px; padding: 12px 18px; border-radius: 8px; border: 1px solid var(--card-border); background: #f8fafc; color: var(--text-main); font-family: var(--font-sans); outline: none; font-size: 0.95rem;">
+                    <button class="btn btn-primary">Schedule Call</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div class="logo">
+                    <div class="logo-icon">Æ</div>
+                    <span>AETHER AI</span>
+                </div>
+                
+                <div class="status-pill">
+                    <span class="status-dot"></span>
+                    <span>Systems Operational // 100% Capacity</span>
+                </div>
+
+                <div style="font-size: 0.85rem; color: var(--text-muted);">
+                    © 2026 AETHER AI Software Inc. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
