@@ -35,46 +35,35 @@
         </div>
     </header>
 
-    <section class="hero">
-        <div class="container">
-            <span class="mono-tag">Lépjen Velünk Kapcsolatba</span>
-            <h1>Indítsuk El Új Weboldalát</h1>
-            <p>Töltse ki az alábbi űrlapot, és 24 órán belül felvesszük Önnel a kapcsolatot egy ingyenes konzultációra.</p>
-        </div>
-    </section>
-
-    <!-- CONTACT FORM -->
     <section class="section">
-        <div class="container" style="max-width: 600px;">
-            <div class="glass-panel" style="padding: 40px;">
-                
-                <form action="https://api.web3forms.com/submit" method="POST">
-                    
-                    <!-- Web3Forms Key (Replace with your key) -->
-                    <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY_HERE">
-                    <input type="hidden" name="subject" value="Új ajánlatkérés a NEXUS Webstúdió oldalról">
+    <div class="container" style="max-width: 580px;">
+        <div class="glass-panel" style="padding: 48px 40px;">
+            
+            <form action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY_HERE">
+                <input type="hidden" name="subject" value="Új ajánlatkérés a NEXUS Webstúdió oldalról">
 
-                    <div style="margin-bottom: 24px;">
-                        <label>Név</label>
-                        <input type="text" name="name" placeholder="Az Ön neve" required style="width: 100%;">
-                    </div>
+                <div class="form-group">
+                    <label for="name">Név</label>
+                    <input type="text" id="name" name="name" placeholder="Az Ön neve" required>
+                </div>
 
-                    <div style="margin-bottom: 24px;">
-                        <label>Email cím</label>
-                        <input type="email" name="email" placeholder="email@domain.hu" required style="width: 100%;">
-                    </div>
+                <div class="form-group">
+                    <label for="email">Email cím</label>
+                    <input type="email" id="email" name="email" placeholder="email@domain.hu" required>
+                </div>
 
-                    <div style="margin-bottom: 28px;">
-                        <label>Projekt részletei / Üzenet</label>
-                        <textarea name="message" rows="5" placeholder="Milyen weboldalra lenne szüksége?" style="width: 100%;"></textarea>
-                    </div>
+                <div class="form-group">
+                    <label for="message">Projekt részletei / Üzenet</label>
+                    <textarea id="message" name="message" placeholder="Milyen weboldalra lenne szüksége?"></textarea>
+                </div>
 
-                    <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 1.05rem; padding: 14px;">Üzenet Küldése →</button>
-                </form>
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 8px;">Üzenet Küldése →</button>
+            </form>
 
-            </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <footer>
         <div class="container">
