@@ -1,10 +1,8 @@
 /* ==========================================================================
-   GLOBAL DESIGN SYSTEM (NEXUS WEBSTUDIO - LIGHT FROSTED GLASS THEME)
+   GLOBAL DESIGN SYSTEM (CODESTUDIO - LIGHT FROSTED GLASS THEME)
    ========================================================================== */
 
-/* 1. FONT DEFINITION (Outfit) */
-
-/* 2. ROOT VARIABLES */
+/* 1. ROOT VARIABLES */
 :root {
     --bg-color: #f8fafc;
     --bg-secondary: #f1f5f9;
@@ -22,7 +20,7 @@
     --shadow-glass: 0 20px 40px -15px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(255, 255, 255, 0.9) inset;
 }
 
-/* 3. RESET & BASE STYLES */
+/* 2. RESET & BASE STYLES */
 *, *::before, *::after {
     margin: 0;
     padding: 0;
@@ -44,7 +42,7 @@ body {
     overflow-x: hidden;
 }
 
-/* AMBIENT BACKGROUND GLOWS FOR GLASS EFFECT */
+/* AMBIENT BACKGROUND GLOWS */
 .ambient-glow-1 {
     position: absolute;
     top: -80px;
@@ -108,13 +106,13 @@ body {
     font-weight: 600;
 }
 
-/* BUTTONS */
+/* BUTTONS (Border-radius: 10px) */
 .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     padding: 14px 28px;
-    border-radius: 12px;
+    border-radius: 10px;
     font-weight: 600;
     font-size: 1rem;
     cursor: pointer;
@@ -147,7 +145,7 @@ body {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
 }
 
-/* HEADER & NAVIGATION */
+/* HEADER & NAVIGATION (Menü elemek közötti gap: 37px) */
 header {
     position: fixed;
     top: 20px;
@@ -193,7 +191,7 @@ header {
 
 .nav-links {
     display: flex;
-    gap: 32px;
+    gap: 37px; /* 5px-el megnövelt térköz */
     list-style: none;
 }
 
@@ -218,7 +216,7 @@ header {
 }
 
 .hero h1 {
-    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    font-size: clamp(2.15rem, 4.5vw, 3.4rem);
     font-weight: 800;
     letter-spacing: -0.03em;
     line-height: 1.15;
@@ -257,7 +255,7 @@ header {
     gap: 24px;
 }
 
-/* FORM STYLING */
+/* FORM STYLING (Border-radius: 10px) */
 .form-group {
     margin-bottom: 24px;
     text-align: left;
@@ -281,7 +279,7 @@ input, textarea {
     box-sizing: border-box;
     background: #ffffff;
     border: 1px solid #cbd5e1;
-    border-radius: 12px;
+    border-radius: 10px !important; /* 2px-el kisebb lekerekítés */
     padding: 14px 18px;
     font-size: 1rem;
     line-height: 1.5;
@@ -309,18 +307,7 @@ textarea {
     min-height: 120px;
 }
 
-/* FOOTER */
-footer {
-    padding: 40px 0;
-    border-top: 1px solid var(--card-border);
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(12px);
-    text-align: center;
-    color: var(--text-muted);
-    font-size: 0.9rem;
-}
-
-/* SELECT / DROPDOWN STÍLUS (LÁTHATÓ NYÍLLAL) */
+/* SELECT / DROPDOWN STÍLUS (Border-radius: 10px) */
 select {
     -webkit-appearance: none !important;
     -moz-appearance: none !important;
@@ -334,8 +321,8 @@ select {
     background-position: right 18px center !important;
     background-size: 16px 16px !important;
     border: 1px solid #cbd5e1 !important;
-    border-radius: 12px !important;
-    padding: 14px 44px 14px 18px !important; /* Jobb oldali térköz a nyílnak */
+    border-radius: 10px !important; /* 2px-el kisebb lekerekítés */
+    padding: 14px 44px 14px 18px !important;
     font-size: 1rem !important;
     line-height: 1.5 !important;
     font-family: var(--font-sans) !important;
@@ -351,4 +338,15 @@ select:focus {
 
 select:invalid, select option[value=""] {
     color: #94a3b8 !important;
+}
+
+/* FOOTER */
+footer {
+    padding: 40px 0;
+    border-top: 1px solid var(--card-border);
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.9rem;
 }
