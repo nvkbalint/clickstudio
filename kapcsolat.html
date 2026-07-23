@@ -22,20 +22,33 @@
     <div class="ambient-glow-2"></div>
 
     <!-- NAVBAR -->
-    <header>
-        <div class="nav-inner">
-            <a href="index.html" class="logo">
-                <span class="logo-badge">CODE</span> STUDIO
-            </a>
-            <ul class="nav-links">
-                <li><a href="index.html">Kezdőlap</a></li>
-                <li><a href="wordpress.html">WordPress</a></li>
-                <li><a href="araink.html">Áraink</a></li>
-                <li><a href="kapcsolat.html" class="active">Kapcsolat</a></li>
-            </ul>
-            <a href="kapcsolat.html" class="btn btn-primary" style="padding: 8px 18px; font-size: 0.85rem;">Ajánlatkérés</a>
-        </div>
-    </header>
+    <!-- NAVBAR -->
+<header>
+    <div class="nav-inner">
+        <a href="index.html" class="logo">
+            <span class="logo-badge">CODE</span> STUDIO
+        </a>
+
+        <!-- HAMBURGER BUTTON (Mobile Only) -->
+        <button class="mobile-toggle" aria-label="Menü megnyitása">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Kezdőlap</a></li>
+            <li><a href="wordpress.html">WordPress</a></li>
+            <li><a href="araink.html">Áraink</a></li>
+            <li><a href="kapcsolat.html">Kapcsolat</a></li>
+            <!-- Mobile CTA inside dropdown -->
+            <li class="mobile-cta"><a href="kapcsolat.html" class="btn btn-primary">Ajánlatkérés</a></li>
+        </ul>
+
+        <!-- Desktop CTA -->
+        <a href="kapcsolat.html" class="btn btn-primary desktop-cta" style="padding: 8px 18px; font-size: 0.85rem;">Ajánlatkérés</a>
+    </div>
+</header>
 
     <!-- HERO SECTION -->
     <section class="hero" style="padding-top: 180px; padding-bottom: 20px;">
