@@ -16,7 +16,6 @@
     --accent-purple: #7c3aed;
     --accent-indigo: #4f46e5;
     
-    /* VIBRANT POP OF COLOR GRADIENT */
     --accent-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
     --accent-gradient-hover: linear-gradient(135deg, #4338ca 0%, #6d28d9 100%);
     
@@ -113,7 +112,7 @@ body {
     font-weight: 600;
 }
 
-/* BUTTONS WITH VIBRANT COLOR POP */
+/* BUTTONS */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -178,6 +177,7 @@ header {
     border: 1px solid var(--card-border);
     border-radius: 14px;
     box-shadow: var(--shadow-sm);
+    position: relative;
 }
 
 .logo {
@@ -218,6 +218,14 @@ header {
 .nav-links a:hover, .nav-links a.active {
     color: var(--accent-indigo);
     font-weight: 600;
+}
+
+.mobile-cta {
+    display: none;
+}
+
+.mobile-toggle {
+    display: none;
 }
 
 /* HERO SECTION */
@@ -361,4 +369,96 @@ footer {
     text-align: center;
     color: var(--text-muted);
     font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVE STYLES (< 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+    header {
+        width: calc(100% - 32px);
+        top: 16px;
+    }
+
+    .nav-inner {
+        padding: 12px 20px;
+    }
+
+    .desktop-cta {
+        display: none;
+    }
+
+    .mobile-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 6px;
+        z-index: 1001;
+    }
+
+    .mobile-toggle .bar {
+        width: 22px;
+        height: 2px;
+        background-color: var(--text-main);
+        border-radius: 2px;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Hamburger to X Animation */
+    .mobile-toggle.active .bar:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .mobile-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .mobile-toggle.active .bar:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Frosted Dropdown Menu for Mobile */
+    .nav-links {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(25px) saturate(180%);
+        -webkit-backdrop-filter: blur(25px) saturate(180%);
+        border: 1px solid var(--card-border);
+        border-radius: 14px;
+        padding: 24px;
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-10px);
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .nav-links.active {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    .mobile-cta {
+        display: block;
+        margin-top: 8px;
+    }
+
+    .mobile-cta .btn {
+        width: 100%;
+    }
+
+    .hero {
+        padding-top: 140px;
+    }
 }
