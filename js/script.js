@@ -1,6 +1,25 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. Automatikus csomagválasztó az URL paraméter alapján (?csomag=pro)
+    // 1. Mobile Hamburger Menu Toggle
+    const mobileToggle = document.querySelector('.mobile-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (mobileToggle && navLinks) {
+        mobileToggle.addEventListener('click', () => {
+            mobileToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu automatically when a link is clicked
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+    }
+
+    // 2. Automatikus csomagválasztó az URL paraméter alapján (?csomag=pro)
     const urlParams = new URLSearchParams(window.location.search);
     const selectedPackage = urlParams.get('csomag');
 
@@ -18,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 2. Magyar nyelvű űrlap beküldés (Pipa nélkül)
+    // 3. Magyar nyelvű űrlap beküldés
     const contactForm = document.querySelector('form[action*="web3forms"]');
     if (contactForm) {
         contactForm.addEventListener('submit', async (e) => {
@@ -41,7 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 const result = await response.json();
 
                 if (result.success) {
-                    // Tisztított, pipa nélküli sikeres visszaigazoló üzenet
                     contactForm.parentElement.innerHTML = `
                         <div style="text-align: center; padding: 20px 10px;">
                             <h3 style="font-size: 1.8rem; margin-bottom: 12px; color: var(--text-main);">Köszönjük az üzeneted!</h3>
