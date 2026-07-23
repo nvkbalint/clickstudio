@@ -16,6 +16,7 @@
     --accent-purple: #7c3aed;
     --accent-indigo: #4f46e5;
     
+    /* VIBRANT POP OF COLOR GRADIENT */
     --accent-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
     --accent-gradient-hover: linear-gradient(135deg, #4338ca 0%, #6d28d9 100%);
     
@@ -220,12 +221,17 @@ header {
     font-weight: 600;
 }
 
-.mobile-cta {
-    display: none;
+/* DESKTOP VISIBILITY RULES (Prevents Duplicate Buttons) */
+.mobile-toggle {
+    display: none !important;
 }
 
-.mobile-toggle {
-    display: none;
+.mobile-cta {
+    display: none !important;
+}
+
+.desktop-cta {
+    display: inline-flex !important;
 }
 
 /* HERO SECTION */
@@ -385,11 +391,11 @@ footer {
     }
 
     .desktop-cta {
-        display: none;
+        display: none !important;
     }
 
     .mobile-toggle {
-        display: flex;
+        display: flex !important;
         flex-direction: column;
         justify-content: center;
         gap: 5px;
@@ -450,7 +456,7 @@ footer {
     }
 
     .mobile-cta {
-        display: block;
+        display: block !important;
         margin-top: 8px;
     }
 
