@@ -12,7 +12,6 @@
     --text-main: #0f172a;
     --text-muted: #64748b;
     
-    /* ÚJ ÓCEÁNKÉK GRADIENT SZÍNEK */
     --accent-cyan: #0284c7;
     --accent-blue: #2563eb;
     --accent-gradient: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
@@ -52,7 +51,7 @@ body {
     position: relative;
 }
 
-/* AMBIENT BACKGROUND GLOWS (KÉK ÁRNYALATOK) */
+/* AMBIENT BACKGROUND GLOWS */
 .ambient-glow-1 {
     position: absolute;
     top: -80px;
@@ -119,7 +118,11 @@ body {
     font-weight: 600;
 }
 
-/* BUTTONS */
+/* BUTTONS (OUTFIT FONT KÉNYSZERÍTÉS MEGVALÓSÍTVA) */
+button, input[type="submit"], .btn {
+    font-family: var(--font-sans) !important;
+}
+
 .btn {
     display: inline-flex;
     align-items: center;
@@ -132,6 +135,7 @@ body {
     transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     text-decoration: none;
     border: none;
+    font-family: var(--font-sans) !important;
 }
 
 .btn-primary {
@@ -315,7 +319,7 @@ input, textarea {
     padding: 14px 18px;
     font-size: 1rem;
     line-height: 1.5;
-    font-family: var(--font-sans);
+    font-family: var(--font-sans) !important;
     color: var(--text-main);
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
     outline: none;
@@ -326,7 +330,7 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
     font-size: 0.95rem;
     color: #94a3b8;
     font-weight: 400;
-    font-family: var(--font-sans);
+    font-family: var(--font-sans) !important;
 }
 
 input:focus, textarea:focus {
@@ -372,9 +376,7 @@ select:invalid, select option[value=""] {
     color: #94a3b8 !important;
 }
 
-/* ==========================================================================
-   ÚJ LÁBLÉC (FOOTER) DESIGN
-   ========================================================================== */
+/* LÁBLÉC (FOOTER) STÍLUS */
 footer {
     padding: 60px 0 30px;
     border-top: 1px solid var(--card-border);
@@ -445,9 +447,7 @@ footer {
     font-size: 0.85rem;
 }
 
-/* ==========================================================================
-   MOBIL KÉPERNYŐ BEÁLLÍTÁSOK (< 768px)
-   ========================================================================== */
+/* MOBIL RESPONSIVE STÍLUSOK (< 768px) */
 @media (max-width: 768px) {
     header {
         width: auto !important;
@@ -485,7 +485,6 @@ footer {
         transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    /* Hamburger Animáció X-re */
     .mobile-toggle.active .bar:nth-child(1) {
         transform: translateY(7px) rotate(45deg);
     }
@@ -498,7 +497,6 @@ footer {
         transform: translateY(-7px) rotate(-45deg);
     }
 
-    /* MOBIL MENÜ JOBBRA IGAZÍTVA */
     .nav-links {
         position: absolute;
         top: calc(100% + 10px);
@@ -512,8 +510,8 @@ footer {
         padding: 24px 28px !important;
         display: flex !important;
         flex-direction: column;
-        align-items: flex-end !important; /* Jobbra igazított linkek */
-        text-align: right !important; /* Jobbra igazított szöveg */
+        align-items: flex-end !important;
+        text-align: right !important;
         gap: 20px;
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         opacity: 0;
@@ -538,7 +536,7 @@ footer {
 
     .mobile-cta .btn {
         width: 100%;
-        color: #ffffff !important; /* FEHÉR BETŰSZÍN A GOMBON */
+        color: #ffffff !important;
     }
 
     .hero {
