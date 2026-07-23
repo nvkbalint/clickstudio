@@ -1,16 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. Mobile Hamburger Menu Toggle
+    // 1. MOBIL HAMBURGER MENÜ NYITÁS / ZÁRÁS
     const mobileToggle = document.querySelector('.mobile-toggle');
     const navLinks = document.querySelector('.nav-links');
 
     if (mobileToggle && navLinks) {
-        mobileToggle.addEventListener('click', () => {
+        mobileToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
             mobileToggle.classList.toggle('active');
             navLinks.classList.toggle('active');
         });
 
-        // Close mobile menu automatically when a link is clicked
+        // Automatikus bezárás ha átkattintanak egy linkre
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileToggle.classList.remove('active');
