@@ -47,12 +47,23 @@
         </div>
     </header>
 
-    <!-- HERO SECTION -->
+    <!-- HERO SECTION (LETÖLTÉS GOMBBAL) -->
     <section class="hero">
         <div class="container">
             <span class="mono-tag">⭐ Árukereső Bővítmény</span>
             <h1>Árukereső megbízható bolt integráció</h1>
             <p>Automatizáld az értékelések gyűjtését. Bővítményünk zökkenőmentesen küldi ki a vásárlások után az értékelő e-maileket és megjeleníti a hivatalos jelvényt.</p>
+            
+            <!-- AKCIÓ GOMBOK (LETÖLTÉS & AJÁNLATKÉRÉS) -->
+            <div style="display: flex; gap: 16px; justify-content: center; align-items: center; flex-wrap: wrap; margin-top: 24px;">
+                <!-- LETÖLTÉS GOMB (a downloads/arukereso-megbizhato-bolt.zip fájlra mutat) -->
+                <a href="downloads/arukereso-megbizhato-bolt.zip" download class="btn btn-primary">
+                    📥 Bővítmény letöltése (.zip)
+                </a>
+                <a href="#ajanlatkeres" class="btn btn-glass">
+                    Ajánlatkérés →
+                </a>
+            </div>
         </div>
     </section>
 
@@ -80,7 +91,7 @@
             </div>
 
             <!-- KAPCSOLATI ŰRLAP -->
-            <div style="max-width: 580px; margin: 0 auto;">
+            <div id="ajanlatkeres" style="max-width: 580px; margin: 0 auto;">
                 <div class="glass-panel" style="padding: 48px 40px;">
                     <h3 style="text-align: center; margin-bottom: 8px;">Ajánlatkérés erre a bővítményre</h3>
                     <p style="text-align: center; color: var(--text-muted); margin-bottom: 32px;">Szeretnéd integrálni az Árukereső Megbízható Bolt szolgáltatást? Írj nekünk!</p>
