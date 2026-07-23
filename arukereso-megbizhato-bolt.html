@@ -47,21 +47,20 @@
         </div>
     </header>
 
-    <!-- HERO SECTION (LETÖLTÉS GOMBBAL) -->
+    <!-- HERO SECTION -->
     <section class="hero">
         <div class="container">
             <span class="mono-tag">⭐ Árukereső Bővítmény</span>
             <h1>Árukereső megbízható bolt integráció</h1>
-            <p>Automatizáld az értékelések gyűjtését. Bővítményünk zökkenőmentesen küldi ki a vásárlások után az értékelő e-maileket és megjeleníti a hivatalos jelvényt.</p>
+            <p>Közvetlen és automatikus összeköttetés a WooCommerce áruházad és az Árukereső Megbízható Bolt programja között. Ingyenesen letölthető plugin, amely az automatikus véleménybekérő e-mailek továbbítását végzi.</p>
             
-            <!-- AKCIÓ GOMBOK (LETÖLTÉS & AJÁNLATKÉRÉS) -->
+            <!-- AKCIÓ GOMBOK -->
             <div style="display: flex; gap: 16px; justify-content: center; align-items: center; flex-wrap: wrap; margin-top: 24px;">
-                <!-- LETÖLTÉS GOMB (a downloads/arukereso-megbizhato-bolt.zip fájlra mutat) -->
                 <a href="downloads/arukereso-megbizhato-bolt.zip" download class="btn btn-primary">
-                    📥 Bővítmény letöltése (.zip)
+                    📥 Ingyenes letöltés (.zip)
                 </a>
-                <a href="#ajanlatkeres" class="btn btn-glass">
-                    Ajánlatkérés →
+                <a href="#apikulcs" class="btn btn-glass">
+                    API kulcs vásárlása →
                 </a>
             </div>
         </div>
@@ -71,35 +70,35 @@
     <section class="section">
         <div class="container">
             <div class="section-title">
-                <span class="mono-tag">Funkciók & előnyök</span>
+                <span class="mono-tag">Funkciók & működés</span>
                 <h2>A bővítmény legfőbb jellemzői</h2>
             </div>
 
             <div class="grid-3" style="margin-bottom: 70px;">
                 <div class="glass-panel" style="padding: 32px;">
-                    <h3 style="margin-bottom: 12px;">📧 Automatikus e-mail küldés</h3>
-                    <p style="color: var(--text-muted);">A sikeres rendelések után a beállított időzítéssel továbbítja a rendelési adatokat az Árukereső rendszerének.</p>
+                    <h3 style="margin-bottom: 12px;">🔑 Árukereső WebAPI integráció</h3>
+                    <p style="color: var(--text-muted);">A vásárlások utáni kérdőív adatokat automatikusan továbbítja az Árukereső felé. Csak aktiválnod kell a funkciót az Árukereső adminban, és beilleszteni a WebAPI kulcsot a plugin beállításaiba.</p>
                 </div>
                 <div class="glass-panel" style="padding: 32px;">
-                    <h3 style="margin-bottom: 12px;">🏅 Hivatalos widget & badge</h3>
-                    <p style="color: var(--text-muted);">A Megbízható Bolt widget automatikus és esztétikus elhelyezése a webshopod láblécében vagy az oldal szélén.</p>
+                    <h3 style="margin-bottom: 12px;">✉️ Testreszabható küldő e-mail & SPF</h3>
+                    <p style="color: var(--text-muted);">A véleménybekérő kérdőívek kiküldhetők a saját domain e-mail címedről (az <code>_spf-c.arukereso.hu</code> SPF rekord beállításával), vagy automatikusan a <code>megbizhatobolt@arukereso.hu</code> címről.</p>
                 </div>
                 <div class="glass-panel" style="padding: 32px;">
-                    <h3 style="margin-bottom: 12px;">🚀 Gyors és biztonságos</h3>
-                    <p style="color: var(--text-muted);">Nem lassítja le a pénztár oldalt, a háttérben, aszinkron módon kommunikál az Árukereső API-jával.</p>
+                    <h3 style="margin-bottom: 12px;">⚡ Ingyenes letöltés & CodeStudio API</h3>
+                    <p style="color: var(--text-muted);">A bővítmény ingyenesen letölthető és telepíthető bármelyik WooCommerce webáruházba. A működéséhez és élesítéséhez egy CodeStudio API kulcs megvásárlása szükséges.</p>
                 </div>
             </div>
 
-            <!-- KAPCSOLATI ŰRLAP -->
-            <div id="ajanlatkeres" style="max-width: 580px; margin: 0 auto;">
+            <!-- CODESTUDIO API KULCS VÁSÁRLÁSI ŰRLAP -->
+            <div id="apikulcs" style="max-width: 580px; margin: 0 auto;">
                 <div class="glass-panel" style="padding: 48px 40px;">
-                    <h3 style="text-align: center; margin-bottom: 8px;">Ajánlatkérés erre a bővítményre</h3>
-                    <p style="text-align: center; color: var(--text-muted); margin-bottom: 32px;">Szeretnéd integrálni az Árukereső Megbízható Bolt szolgáltatást? Írj nekünk!</p>
+                    <h3 style="text-align: center; margin-bottom: 8px;">CodeStudio API kulcs vásárlása</h3>
+                    <p style="text-align: center; color: var(--text-muted); margin-bottom: 32px;">Töltsd le a plugint ingyenesen, majd kérj CodeStudio API kulcsot a bővítmény aktiválásához!</p>
                     
                     <form action="https://api.web3forms.com/submit" method="POST">
                         <input type="hidden" name="access_key" value="23efb807-b8fc-4566-b5e0-0a1b36a09f5e">
-                        <input type="hidden" name="subject" value="Új ajánlatkérés: Árukereső Megbízható Bolt">
-                        <input type="hidden" name="Valasztott_szolgaltatas" value="Árukereső Megbízható Bolt Integráció">
+                        <input type="hidden" name="subject" value="Új API kulcs igénylés: Árukereső Megbízható Bolt">
+                        <input type="hidden" name="Valasztott_szolgaltatas" value="Árukereső API kulcs igénylés">
 
                         <div class="form-group">
                             <label for="name">Név</label>
@@ -113,10 +112,10 @@
 
                         <div class="form-group">
                             <label for="message">Projekt részletei</label>
-                            <textarea id="message" name="Projekt_reszletei" placeholder="Írd meg a webshopod címét vagy egyedi kéréseidet!"></textarea>
+                            <textarea id="message" name="Projekt_reszletei" placeholder="Írd meg a webshopod domain címét, ahová az API kulcsot szeretnéd!"></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 8px;">Ajánlatkérés elküldése →</button>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 8px;">API kulcs igénylése →</button>
                     </form>
                 </div>
             </div>
