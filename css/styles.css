@@ -1,8 +1,8 @@
 /* ==========================================================================
-   GLOBAL DESIGN SYSTEM (CODESTUDIO - LIGHT FROSTED GLASS THEME)
+   GLOBAL DESIGN SYSTEM (CODESTUDIO - OCEAN BLUE FROSTED GLASS THEME)
    ========================================================================== */
 
-/* 1. ROOT VARIABLES */
+/* 1. ROOT VARIABLES (KÉK GRADIENT THEME) */
 :root {
     --bg-color: #f8fafc;
     --bg-secondary: #f1f5f9;
@@ -11,22 +11,21 @@
     --glass-nav: rgba(255, 255, 255, 0.85);
     --text-main: #0f172a;
     --text-muted: #64748b;
-    --accent-black: #09090b;
-    --accent-blue: #0284c7;
-    --accent-purple: #7c3aed;
-    --accent-indigo: #4f46e5;
     
-    --accent-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-    --accent-gradient-hover: linear-gradient(135deg, #4338ca 0%, #6d28d9 100%);
+    /* ÚJ ÓCEÁNKÉK GRADIENT SZÍNEK */
+    --accent-cyan: #0284c7;
+    --accent-blue: #2563eb;
+    --accent-gradient: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
+    --accent-gradient-hover: linear-gradient(135deg, #0369a1 0%, #1d4ed8 100%);
     
     --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.03), 0 2px 4px -2px rgba(0, 0, 0, 0.03);
     --shadow-glass: 0 20px 40px -15px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(255, 255, 255, 0.9) inset;
-    --shadow-btn: 0 6px 20px -2px rgba(79, 70, 229, 0.4);
-    --shadow-btn-hover: 0 10px 28px -2px rgba(79, 70, 229, 0.55);
+    --shadow-btn: 0 6px 20px -2px rgba(37, 99, 235, 0.35);
+    --shadow-btn-hover: 0 10px 28px -2px rgba(37, 99, 235, 0.5);
 }
 
-/* 2. RESET & OVERFLOW PREVENT (MEGGÁTOLJA A CSÚSZKÁLÁST) */
+/* 2. RESET & OVERFLOW PREVENT */
 *, *::before, *::after {
     margin: 0;
     padding: 0;
@@ -53,7 +52,7 @@ body {
     position: relative;
 }
 
-/* AMBIENT BACKGROUND GLOWS */
+/* AMBIENT BACKGROUND GLOWS (KÉK ÁRNYALATOK) */
 .ambient-glow-1 {
     position: absolute;
     top: -80px;
@@ -62,7 +61,7 @@ body {
     width: 100%;
     max-width: 800px;
     height: 450px;
-    background: radial-gradient(circle, rgba(124, 58, 237, 0.12) 0%, rgba(79, 70, 229, 0.08) 50%, transparent 80%);
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.12) 0%, rgba(2, 132, 199, 0.08) 50%, transparent 80%);
     filter: blur(90px);
     z-index: -1;
     pointer-events: none;
@@ -75,7 +74,7 @@ body {
     width: 100%;
     max-width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(2, 132, 199, 0.08) 0%, rgba(124, 58, 237, 0.06) 50%, transparent 80%);
+    background: radial-gradient(circle, rgba(2, 132, 199, 0.1) 0%, rgba(37, 99, 235, 0.06) 50%, transparent 80%);
     filter: blur(100px);
     z-index: -1;
     pointer-events: none;
@@ -109,9 +108,9 @@ body {
     font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 0.06em;
-    color: var(--accent-purple);
-    background: rgba(124, 58, 237, 0.08);
-    border: 1px solid rgba(124, 58, 237, 0.2);
+    color: var(--accent-cyan);
+    background: rgba(2, 132, 199, 0.08);
+    border: 1px solid rgba(2, 132, 199, 0.2);
     padding: 6px 16px;
     border-radius: 28px;
     display: inline-flex;
@@ -136,13 +135,13 @@ body {
 }
 
 .btn-primary {
-    background: var(--accent-gradient);
-    color: #ffffff;
+    background: var(--accent-gradient) !important;
+    color: #ffffff !important;
     box-shadow: var(--shadow-btn);
 }
 
 .btn-primary:hover {
-    background: var(--accent-gradient-hover);
+    background: var(--accent-gradient-hover) !important;
     transform: translateY(-2px);
     box-shadow: var(--shadow-btn-hover);
 }
@@ -157,10 +156,10 @@ body {
 
 .btn-glass:hover {
     background: #ffffff;
-    border-color: rgba(124, 58, 237, 0.3);
-    color: var(--accent-purple);
+    border-color: rgba(2, 132, 199, 0.3);
+    color: var(--accent-cyan);
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.12);
+    box-shadow: 0 8px 20px rgba(2, 132, 199, 0.12);
 }
 
 /* HEADER & NAVIGATION */
@@ -206,7 +205,7 @@ header {
     border-radius: 4px;
     font-size: 0.85rem;
     font-weight: 800;
-    box-shadow: 0 2px 8px rgba(79, 70, 229, 0.3);
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
 }
 
 .nav-links {
@@ -224,7 +223,7 @@ header {
 }
 
 .nav-links a:hover, .nav-links a.active {
-    color: var(--accent-indigo);
+    color: var(--accent-blue);
     font-weight: 600;
 }
 
@@ -331,8 +330,8 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 }
 
 input:focus, textarea:focus {
-    border-color: var(--accent-indigo);
-    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15);
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
 }
 
 textarea {
@@ -349,7 +348,7 @@ select {
     display: block !important;
     box-sizing: border-box !important;
     background-color: #ffffff !important;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%234f46e5' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") !important;
     background-repeat: no-repeat !important;
     background-position: right 18px center !important;
     background-size: 16px 16px !important;
@@ -365,23 +364,85 @@ select {
 }
 
 select:focus {
-    border-color: var(--accent-indigo) !important;
-    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15) !important;
+    border-color: var(--accent-blue) !important;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15) !important;
 }
 
 select:invalid, select option[value=""] {
     color: #94a3b8 !important;
 }
 
-/* FOOTER */
+/* ==========================================================================
+   ÚJ LÁBLÉC (FOOTER) DESIGN
+   ========================================================================== */
 footer {
-    padding: 40px 0;
+    padding: 60px 0 30px;
     border-top: 1px solid var(--card-border);
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    margin-top: 60px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.footer-slogan {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    max-width: 380px;
+    line-height: 1.6;
+    margin-top: 12px;
+}
+
+.footer-title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--text-main);
+}
+
+.footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: var(--accent-blue);
+}
+
+.footer-contact a {
+    color: var(--text-main);
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+.footer-contact a:hover {
+    color: var(--accent-blue);
+}
+
+.footer-bottom {
+    padding-top: 24px;
+    border-top: 1px solid rgba(226, 232, 240, 0.8);
     text-align: center;
     color: var(--text-muted);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
 }
 
 /* ==========================================================================
@@ -437,7 +498,7 @@ footer {
         transform: translateY(-7px) rotate(-45deg);
     }
 
-    /* MŰKÖDŐ TEJÜVEG MOBIL MENÜ */
+    /* MOBIL MENÜ JOBBRA IGAZÍTVA */
     .nav-links {
         position: absolute;
         top: calc(100% + 10px);
@@ -448,11 +509,12 @@ footer {
         -webkit-backdrop-filter: blur(25px) saturate(180%);
         border: 1px solid var(--card-border);
         border-radius: 14px;
-        padding: 24px;
+        padding: 24px 28px !important;
         display: flex !important;
         flex-direction: column;
+        align-items: flex-end !important; /* Jobbra igazított linkek */
+        text-align: right !important; /* Jobbra igazított szöveg */
         gap: 20px;
-        text-align: center;
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         opacity: 0;
         visibility: hidden;
@@ -461,7 +523,6 @@ footer {
         transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    /* Megnyitott mobil menü */
     .nav-links.active {
         opacity: 1 !important;
         visibility: visible !important;
@@ -472,10 +533,12 @@ footer {
     .mobile-cta {
         display: block !important;
         margin-top: 8px;
+        width: 100%;
     }
 
     .mobile-cta .btn {
         width: 100%;
+        color: #ffffff !important; /* FEHÉR BETŰSZÍN A GOMBON */
     }
 
     .hero {
@@ -483,6 +546,12 @@ footer {
     }
 
     .grid-3 {
-        grid-template-columns: 1fr !important; /* 1 oszlopos kártya elrendezés mobilon */
+        grid-template-columns: 1fr !important;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        text-align: left;
     }
 }
