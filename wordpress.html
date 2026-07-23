@@ -76,23 +76,23 @@
                     <p style="text-align: center; color: var(--text-muted); margin-bottom: 32px;">Írd meg nekünk, milyen bővítményre vagy egyedi megoldásra lenne szükséged!</p>
                     
                     <form action="https://api.web3forms.com/submit" method="POST">
-                        <!-- Web3Forms Access Key -->
                         <input type="hidden" name="access_key" value="23efb807-b8fc-4566-b5e0-0a1b36a09f5e">
                         <input type="hidden" name="subject" value="Új WordPress ajánlatkérés a CodeStudio oldalról">
+                        <input type="hidden" name="Választott szolgáltatás" value="Egyedi WordPress szolgáltatás">
 
                         <div class="form-group">
                             <label for="name">Név</label>
-                            <input type="text" id="name" name="name" placeholder="A neved" required>
+                            <input type="text" id="name" name="Név" placeholder="A neved" required>
                         </div>
 
                         <div class="form-group">
                             <label for="email">Email cím</label>
-                            <input type="email" id="email" name="email" placeholder="email@domain.hu" required>
+                            <input type="email" id="email" name="Email" placeholder="email@domain.hu" required>
                         </div>
 
                         <div class="form-group">
                             <label for="message">Projekt részletei</label>
-                            <textarea id="message" name="message" placeholder="Milyen egyedi bővítményre vagy WordPress megoldásra lenne szükséged?"></textarea>
+                            <textarea id="message" name="Projekt részletei" placeholder="Milyen egyedi bővítményre vagy WordPress megoldásra lenne szükséged?"></textarea>
                         </div>
 
                         <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 8px;">WordPress Ajánlatkérés →</button>
@@ -108,6 +108,9 @@
             <p>© 2026 CodeStudio. Minden jog fenntartva.</p>
         </div>
     </footer>
+
+    <!-- JS FÁJL -->
+    <script src="js/script.js"></script>
 
 </body>
 </html>
