@@ -1,12 +1,66 @@
-// Automatkus csomagválasztó az URL paraméter alapján (?csomag=pro)
 document.addEventListener('DOMContentLoaded', () => {
+    
+    // 1. Automatikus csomagválasztó az URL paraméter alapján (?csomag=pro)
     const urlParams = new URLSearchParams(window.location.search);
     const selectedPackage = urlParams.get('csomag');
 
-    if (selectedPackage) {
+    const packageMap = {
+        'start': 'Start weboldal csomag',
+        'pro': 'Pro weboldal csomag',
+        'egyedi': 'Egyedi weboldal csomag',
+        'wordpress': 'Egyedi WordPress szolgáltatás'
+    };
+
+    if (selectedPackage && packageMap[selectedPackage]) {
         const packageSelect = document.getElementById('package');
         if (packageSelect) {
-            packageSelect.value = selectedPackage;
+            packageSelect.value = packageMap[selectedPackage];
         }
+    }
+
+    // 2. Magyar nyelvű AJAX űrlap beküldés (Átirányítás nélkül)
+    const contactForm = document.querySelector('form[action*="web3forms"]');
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerHTML;
+            
+            submitBtn.innerText = 'Küldés folyamatban...';
+            submitBtn.disabled = true;
+
+            const formData = new FormData(contactForm);
+
+            try {
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    // Magyar nyelvű sikeres visszaigazoló üzenet az oldalon belül
+                    contactForm.parentElement.innerHTML = `
+                        <div style="text-align: center; padding: 30px 10px;">
+                            <div style="font-size: 3.5rem; margin-bottom: 16px;">✅</div>
+                            <h3 style="font-size: 1.8rem; margin-bottom: 12px; color: var(--text-main);">Köszönjük az üzeneted!</h3>
+                            <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.6; max-width: 450px; margin: 0 auto;">
+                                Sikeresen megkaptuk az ajánlatkérésedet. 24 órán belül felvesszük veled a kapcsolatot!
+                            </p>
+                        </div>
+                    `;
+                } else {
+                    alert('Hiba történt az üzenet küldése során. Kérjük próbáld újra!');
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.disabled = false;
+                }
+            } catch (error) {
+                alert('Hálózati hiba történt. Kérjük próbáld újra!');
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+            }
+        });
     }
 });
