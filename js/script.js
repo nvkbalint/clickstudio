@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 2. Magyar nyelvű AJAX űrlap beküldés (Átirányítás nélkül)
+    // 2. Magyar nyelvű űrlap beküldés (Pipa nélkül)
     const contactForm = document.querySelector('form[action*="web3forms"]');
     if (contactForm) {
         contactForm.addEventListener('submit', async (e) => {
@@ -41,10 +41,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 const result = await response.json();
 
                 if (result.success) {
-                    // Magyar nyelvű sikeres visszaigazoló üzenet az oldalon belül
+                    // Tisztított, pipa nélküli sikeres visszaigazoló üzenet
                     contactForm.parentElement.innerHTML = `
-                        <div style="text-align: center; padding: 30px 10px;">
-                            <div style="font-size: 3.5rem; margin-bottom: 16px;">✅</div>
+                        <div style="text-align: center; padding: 20px 10px;">
                             <h3 style="font-size: 1.8rem; margin-bottom: 12px; color: var(--text-main);">Köszönjük az üzeneted!</h3>
                             <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.6; max-width: 450px; margin: 0 auto;">
                                 Sikeresen megkaptuk az ajánlatkérésedet. 24 órán belül felvesszük veled a kapcsolatot!
