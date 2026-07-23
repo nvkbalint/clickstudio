@@ -2,7 +2,7 @@
    GLOBAL DESIGN SYSTEM (CODESTUDIO - OCEAN BLUE FROSTED GLASS THEME)
    ========================================================================== */
 
-/* 1. ROOT VARIABLES (KÉK GRADIENT THEME) */
+/* 1. ROOT VARIABLES */
 :root {
     --bg-color: #f8fafc;
     --bg-secondary: #f1f5f9;
@@ -118,7 +118,7 @@ body {
     font-weight: 600;
 }
 
-/* BUTTONS (OUTFIT FONT KÉNYSZERÍTÉS MEGVALÓSÍTVA) */
+/* BUTTONS */
 button, input[type="submit"], .btn {
     font-family: var(--font-sans) !important;
 }
@@ -429,7 +429,7 @@ footer {
 
 .footer-contact a {
     color: var(--text-main);
-    font-weight: 600;
+    font-weight: 400; /* Csökkentve 600-ról 400-ra (-200 vastagság) */
     text-decoration: none;
     font-size: 0.95rem;
     transition: color 0.2s ease;
