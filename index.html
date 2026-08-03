@@ -11,15 +11,19 @@
     <!-- GOOGLE CDN OUTFIT FONT -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <!-- STYLESHEET -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-    <div class="ambient-glow-1"></div>
-    <div class="ambient-glow-2"></div>
+    <!-- AMBIENT BACKGROUND GLOWS -->
+    <div class="ambient-canvas">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
 
     <!-- NAVBAR -->
     <header>
@@ -43,19 +47,97 @@
                 <li class="mobile-cta"><a href="kapcsolat.html" class="btn btn-primary">Ajánlatkérés</a></li>
             </ul>
 
-            <a href="kapcsolat.html" class="btn btn-primary desktop-cta" style="padding: 8px 18px; font-size: 0.85rem;">Ajánlatkérés</a>
+            <a href="kapcsolat.html" class="btn btn-primary desktop-cta">Ajánlatkérés</a>
         </div>
     </header>
 
     <!-- HERO SECTION -->
     <section class="hero">
+        <div class="hero-container">
+            <!-- LEFT HERO TEXT -->
+            <div class="hero-content">
+                <span class="mono-tag">
+                    <span class="badge-dot"></span>
+                    Prémium egyedi webfejlesztés
+                </span>
+                <h1>Modern, villámgyors weboldalak vállalkozásoknak</h1>
+                <p>Felejtsd el a lassú, túlterhelt rendszereket. Egyedi, kézzel kódolt és Google-optimalizált weboldalakat készítünk, amelyek vásárlókká konvertálják a látogatóidat.</p>
+                <div class="hero-actions">
+                    <a href="kapcsolat.html" class="btn btn-primary">Ingyenes konzultáció →</a>
+                    <a href="araink.html" class="btn btn-glass">Csomagok megtekintése</a>
+                </div>
+            </div>
+
+            <!-- RIGHT HERO INTERACTIVE LIQUID DASHBOARD -->
+            <div class="hero-widget-container">
+                <div class="glass-panel hero-widget">
+                    <div class="widget-header">
+                        <div class="widget-title">
+                            <span class="status-indicator"></span>
+                            CodeStudio Render Core v3.4
+                        </div>
+                        <div class="window-dots">
+                            <span></span><span></span><span></span>
+                        </div>
+                    </div>
+
+                    <div class="widget-grid">
+                        <!-- Score Card 1 -->
+                        <div class="soft-card">
+                            <div class="soft-card-header">
+                                <span class="score-number">100</span>
+                                <span class="score-unit">/100</span>
+                            </div>
+                            <div class="soft-card-title">Google PageSpeed</div>
+                            <div class="progress-bar"><div class="progress-fill" style="width: 100%;"></div></div>
+                        </div>
+
+                        <!-- Score Card 2 -->
+                        <div class="soft-card">
+                            <div class="soft-card-header">
+                                <span class="score-number">0.4</span>
+                                <span class="score-unit">mp</span>
+                            </div>
+                            <div class="soft-card-title">Betöltési sebesség</div>
+                            <div class="progress-bar"><div class="progress-fill cyan" style="width: 95%;"></div></div>
+                        </div>
+
+                        <!-- Interactive Feature Pill -->
+                        <div class="soft-card full-width">
+                            <div class="flex-between">
+                                <div>
+                                    <div class="soft-card-title-lg">Tiszta HTML5 / CSS3 Kód</div>
+                                    <div class="soft-card-sub">WordPress sallangok és lassító bővítmények nélkül</div>
+                                </div>
+                                <div class="pulse-icon">⚡</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS BAR -->
+    <section class="stats-section">
         <div class="container">
-            <span class="mono-tag">⚡ Prémium egyedi webfejlesztés</span>
-            <h1>Modern, villámgyors weboldalak vállalkozásoknak</h1>
-            <p>Felejtsd el a lassú, túlterhelt rendszereket. Egyedi, kézzel kódolt és Google-optimalizált weboldalakat készítünk, amelyek vásárlókká konvertálják a látogatóidat.</p>
-            <div style="display: flex; gap: 16px; justify-content: center;">
-                <a href="kapcsolat.html" class="btn btn-primary">Ingyenes konzultáció →</a>
-                <a href="araink.html" class="btn btn-glass">Csomagok megtekintése</a>
+            <div class="glass-panel stats-grid">
+                <div class="stat-item">
+                    <div class="stat-value">100%</div>
+                    <div class="stat-label">Google SEO Indexelés</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">&lt;1s</div>
+                    <div class="stat-label">Átlagos Betöltés</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">0%</div>
+                    <div class="stat-label">Felesleges Bővítmény</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">100%</div>
+                    <div class="stat-label">Mobil Optimalizáltság</div>
+                </div>
             </div>
         </div>
     </section>
@@ -69,18 +151,34 @@
             </div>
             
             <div class="grid-3">
-                <div class="glass-panel" style="padding: 32px;">
-                    <h3 style="margin-bottom: 12px;">🚀 Villámgyors sebesség</h3>
-                    <p style="color: var(--text-muted);">Egyedi HTML/CSS kódolásunknak köszönhetően weboldalad 1 másodperc alatt betölt, megelőzve a versenytársaidat.</p>
+                <div class="glass-panel service-card">
+                    <div class="icon-box">🚀</div>
+                    <h3>Villámgyors sebesség</h3>
+                    <p>Egyedi HTML/CSS kódolásunknak köszönhetően weboldalad 1 másodperc alatt betölt, megelőzve a versenytársaidat.</p>
                 </div>
-                <div class="glass-panel" style="padding: 32px;">
-                    <h3 style="margin-bottom: 12px;">📱 100% mobilbarát design</h3>
-                    <p style="color: var(--text-muted);">Minden kijelzőméreten tökéletesen megjelenő, reszponzív felületeket tervezünk.</p>
+
+                <div class="glass-panel service-card">
+                    <div class="icon-box">📱</div>
+                    <h3>100% mobilbarát design</h3>
+                    <p>Minden kijelzőméreten tökéletesen megjelenő, reszponzív és modernebb felületeket tervezünk.</p>
                 </div>
-                <div class="glass-panel" style="padding: 32px;">
-                    <h3 style="margin-bottom: 12px;">🔍 Google SEO optimalizálás</h3>
-                    <p style="color: var(--text-muted);">Tiszta kódstruktúra és keresőoptimalizált beállítások, hogy az ügyfeleid könnyen rátaláljanak a Google-ben.</p>
+
+                <div class="glass-panel service-card">
+                    <div class="icon-box">🔍</div>
+                    <h3>Google SEO optimalizálás</h3>
+                    <p>Tiszta kódstruktúra és keresőoptimalizált beállítások, hogy az ügyfeleid könnyen rátaláljanak a Google-ben.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="section cta-section">
+        <div class="container">
+            <div class="glass-panel cta-box">
+                <h2>Készen állsz egy szinttel feljebb lépni?</h2>
+                <p>Kérj ingyenes ajánlatot, és építsünk együtt egy villámgyors weboldalt vállalkozásodnak.</p>
+                <a href="kapcsolat.html" class="btn btn-primary" style="margin-top: 10px;">Ajánlatkérés indítása →</a>
             </div>
         </div>
     </section>
